@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         setContentView(R.layout.activity_main);
         pointLayout = (LinearLayout) findViewById(R.id.llayout);
         count = pointLayout.getChildCount();
+        images = new ImageView[count];
         for(int i = 0;i < count; i++){
             images[i] = (ImageView) pointLayout.getChildAt(i);
             images[i].setEnabled(true);
