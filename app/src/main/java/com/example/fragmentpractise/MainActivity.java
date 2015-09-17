@@ -142,11 +142,32 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                lastX = (int) motionEvent.getX();
+                break;
+            case MotionEvent.ACTION_UP:
+                if(!flag){
+                    //  从最后一页向右滑动
+                    if((lastX - motionEvent.getX() >100)&&(mViewPager.getCurrentItem() == mViewPager.getAdapter().getCount() -1)){
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                SharedPreferences prefs = getSharedPreferences("loading",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putBoolean("loading_flag",true);
+                                editor.commit();
 
+                                Intent intent = new Intent(MainActivity.this,MyActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        },0);
+                    }
+                }
+                break;
+        }
         return false;
     }
-
-
-
 
 }
