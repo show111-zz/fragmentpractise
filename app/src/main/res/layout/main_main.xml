@@ -3,6 +3,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scrollbars="none">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RadioGroup
+                android:id="@+id/radio"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true">
+                <RadioButton
+                    android:id="@+id/btn1"
+                    android:text="最新上线"
+                    style="@style/radioButton"
+                    android:background="@drawable/new_custom_tab_indicator"
+                    android:textColor="@android:color/darker_gray"/>
+                <RadioButton
+                    android:id="@+id/btn2"
+                    android:text="昨日上线"
+                    style="@style/radioButton"
+                    android:background="@drawable/new_custom_tab_indicator"
+                    android:textColor="@android:color/darker_gray"/>
+                <RadioButton
+                    android:id="@+id/btn3"
+                    android:text="精品上线"
+                    style="@style/radioButton"
+                    android:background="@drawable/new_custom_tab_indicator"
+                    android:textColor="@android:color/darker_gray"/>
+                <RadioButton
+                    android:id="@+id/btn4"
+                    android:text="最后疯抢"
+                    style="@style/radioButton"
+                    android:background="@drawable/new_custom_tab_indicator"
+                    android:textColor="@android:color/darker_gray"/>
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignBottom="@id/radio"/>
+
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+    <ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/horizontalscrollview"/>
 
 </RelativeLayout>
